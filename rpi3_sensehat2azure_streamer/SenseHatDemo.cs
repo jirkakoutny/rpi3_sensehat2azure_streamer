@@ -28,25 +28,25 @@ using rpi3_sensehat2azure_streamer;
 
 namespace RPi.SenseHat.Demo
 {
-	public abstract class SenseHatDemo
-	{
-		private readonly ManualResetEventSlim _waitEvent = new ManualResetEventSlim(false);
+    public abstract class SenseHatDemo
+    {
+        private readonly ManualResetEventSlim _waitEvent = new ManualResetEventSlim(false);
 
-		protected SenseHatDemo(ISenseHat senseHat, MainPage mainPage)
-		{
-			MainPage = mainPage;
-			SenseHat = senseHat;
-		}
+        protected SenseHatDemo(ISenseHat senseHat, MainPage mainPage)
+        {
+            MainPage = mainPage;
+            SenseHat = senseHat;
+        }
 
-		protected MainPage MainPage { get; }
+        protected MainPage MainPage { get; }
 
-		protected ISenseHat SenseHat { get; }
+        protected ISenseHat SenseHat { get; }
 
-		public abstract void Run();
+        public abstract void Run();
 
-		protected void Sleep(TimeSpan duration)
-		{
-			_waitEvent.Wait(duration);
-		}
-	}
+        protected void Sleep(TimeSpan duration)
+        {
+            _waitEvent.Wait(duration);
+        }
+    }
 }
